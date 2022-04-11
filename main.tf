@@ -53,7 +53,7 @@ locals {
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name = aws_s3_bucket.b.bucket_regional_domain_name
+    domain_name = 'jasonscalia.s3.amazonaws.com'
     origin_id   = local.s3_origin_id
 
     s3_origin_config {
