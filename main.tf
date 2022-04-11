@@ -12,13 +12,23 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_s3_bucket" "b" {
-  bucket = "jasonscalia.com"
-  acl    = "public-read"
-  policy = file("policy.json")
+resource "aws_s3_bucket_website_configuration" "jasonscalia.com" {
+  bucket = jasonscalia.com
 
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "error.html"
+  }
+
+  routing_rule {
+    condition {
+      key_prefix_equals = "docs/"
+    }
+    redirect {
+      replace_key_prefix_with = "documents/"
+    }
   }
 }
