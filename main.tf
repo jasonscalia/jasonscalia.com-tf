@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket_website_configuration" "jasonscalia_bucket" {
-  bucket = jasonscalia.com
+  bucket = "jasonscalia.com"
 
   index_document {
     suffix = "index.html"
