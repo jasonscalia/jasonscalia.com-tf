@@ -12,7 +12,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_s3_bucket_website_configuration" "jasonscalia.com" {
+resource "aws_s3_bucket_website_configuration" "jasonscalia_bucket" {
   bucket = jasonscalia.com
 
   index_document {
